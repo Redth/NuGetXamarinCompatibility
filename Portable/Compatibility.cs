@@ -20,16 +20,17 @@ namespace Portable
         {
             return new HttpClientHandler();
         }
-//        public static HttpClientHandler CreateHttpClientHandlerWithCompression()
-//        {
-//            var handler = new HttpClientHandler();
-//            if (handler.SupportsAutomaticDecompression)
-//            {
-//                handler.AutomaticDecompression = DecompressionMethods.GZip |
-//                                                 DecompressionMethods.Deflate;
-//            }
-//            return handler;
-//        }
+        
+		public static HttpClientHandler CreateHttpClientHandlerWithCompression()
+        {
+            var handler = new HttpClientHandler();
+            if (handler.SupportsAutomaticDecompression)
+            {
+				handler.AutomaticDecompression = System.Net.DecompressionMethods.GZip |
+												 System.Net.DecompressionMethods.Deflate;
+            }
+            return handler;
+        }
 
         public static async Task Google(HttpClient client)
         {
