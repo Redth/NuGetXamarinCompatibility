@@ -27,7 +27,7 @@ namespace TestiOS
             HttpExtensionsFromPCL();
             HttpExtensionsToPCL();
 
-			//await HttpPrimitivesFromPCL();
+			await HttpPrimitivesFromPCL();
             await HttpPrimitivesToPCL();
         }
 
@@ -72,13 +72,13 @@ namespace TestiOS
             await Portable.Compatibility.TestHttpPrimitives(handler);
         }
 
-//        async Task HttpPrimitivesFromPCL()
-//        {
-//            var handler = Portable.Compatibility.CreateHttpClientHandlerWithCompression();
-//            var httpClient = new HttpClient(handler);
-//            var str = await httpClient.GetStringAsync("http://en.wikipedia.org/wiki/Gzip");
-//
-//            Console.WriteLine("iOS: Wikipedia: {0}", str.Contains("Wikipedia"));
-//        }
+        async Task HttpPrimitivesFromPCL()
+        {
+            var handler = Portable.Compatibility.CreateHttpClientHandlerWithCompression();
+            var httpClient = new HttpClient(handler);
+            var str = await httpClient.GetStringAsync("http://en.wikipedia.org/wiki/Gzip");
+
+            Console.WriteLine("iOS: Wikipedia: {0}", str.Contains("Wikipedia"));
+        }
     }
 }
